@@ -13,8 +13,11 @@ Your three learning paths form an **excellent, well-structured progression**:
 | Course | Focus Area | Why It Matters |
 |--------|-----------|----------------|
 | **Transformer Architecture** | Core ML foundations | Understand *what* powers AI systems |
-| **Harness Engineering** | Agent system design | Understand *how* to build reliable AI systems |
-| **AAuth Protocol** | Enterprise security | Understand *how* to deploy AI safely in production |
+| **LLM Internals** | Pre-training & scaling | Understand *how* LLMs are built |
+| **Agent System Design** | Agent system architecture | Understand *how* to build reliable AI systems |
+| **AI Security & Identity** | Enterprise security | Understand *how* to deploy AI safely in production |
+| **Agentic Protocols** | Interoperability | Understand *how* agents communicate and integrate |
+| **Multimodal AI** | Vision, audio, video | Understand *how* AI sees and hears |
 
 ### ✅ Verdict: Strong Foundation
 
@@ -76,7 +79,7 @@ To become truly job-ready, I recommend adding these complementary courses:
 ### Phase 2: System Building (Months 4-6)
 *Learn to build reliable, production-grade AI systems*
 
-#### Month 4-5: Harness Engineering
+#### Month 4-5: Agent System Design
 **Your existing course** | 6 weeks | ~12-15 hrs/week
 
 | Week | Module | Key Concepts | Deliverable |
@@ -85,10 +88,10 @@ To become truly job-ready, I recommend adding these complementary courses:
 | 2 | Tool Selection | Tool cliff, embedding routers, Vercel case study | Tool router |
 | 3 | Constraint Management | Reasoning sandwich, loop detection, verification | Constraint system |
 | 4 | Evaluation | Behavioral evals, three-stage architecture | Eval framework |
-| 5 | Production Hardening | Sandboxing, compaction, observability | Production harness |
+| 5 | Production Hardening | Sandboxing, compaction, observability | Production system |
 | 6 | Case Studies + Self-Improvement | Manus, Copilot, Claude Code, ACE, MCE | Complete agent |
 
-**Milestone:** Build a coding agent with proper harness engineering principles
+**Milestone:** Build a coding agent with proper system design principles
 
 ---
 
@@ -109,7 +112,7 @@ To become truly job-ready, I recommend adding these complementary courses:
 ### Phase 3: Production & Enterprise (Months 7-9)
 *Learn to deploy and secure AI systems in production*
 
-#### Month 7: AAuth Protocol
+#### Month 7: AI Security & Identity
 **Your existing course** | 4 weeks | ~10-12 hrs/week
 
 | Week | Module | Key Concepts | Deliverable |
@@ -119,7 +122,7 @@ To become truly job-ready, I recommend adding these complementary courses:
 | 3 | Person Server + Missions | Consent, deferred responses, governance | Person Server |
 | 4 | Federation + Call Chaining | Cross-domain auth, delegation chains | Complete system |
 
-**Milestone:** Build a secure agent authorization system
+**Milestone:** Build a secure agent identity and authorization system
 
 ---
 
@@ -163,8 +166,8 @@ Choose 2-3 projects based on your career direction:
 
 | Project Type | Description | Skills Demonstrated |
 |--------------|-------------|---------------------|
-| **Coding Assistant** | Build a code completion/review agent | Harness engineering, tool use |
-| **Enterprise RAG** | Document Q&A with access control | RAG, AAuth, production patterns |
+| **Coding Assistant** | Build a code completion/review agent | Agent system design, tool use |
+| **Enterprise RAG** | Document Q&A with access control | RAG, AI security, production patterns |
 | **Multi-Agent Research** | Autonomous research pipeline | Multi-agent, evaluation, MLOps |
 | **Domain-Specific LLM** | Fine-tuned model for industry vertical | Fine-tuning, deployment, evaluation |
 | **Open Source Contribution** | Contribute to LangChain, vLLM, etc. | Real-world codebase experience |
@@ -192,16 +195,19 @@ Courses  Transformers  │  Harness Eng  │  AAuth       │  Fine-tuning
 | # | Course | Duration | Status |
 |---|--------|----------|--------|
 | 1 | Transformer Architecture | 6-8 weeks | ✅ Started (Step 1 complete) |
-| 2 | Harness Engineering | 6 weeks | 📋 Ready |
-| 3 | AAuth Protocol | 4 weeks | 📋 Ready |
+| 2 | LLM Internals | 6-8 weeks | 📋 Ready |
+| 3 | Agent System Design | 6 weeks | 📋 Ready |
+| 4 | AI Security & Identity | 4 weeks | 📋 Ready |
+| 5 | Agentic Protocols | 4 weeks | 📋 Ready |
+| 6 | Multimodal AI | 6 weeks | 📋 Ready |
 
 ### Courses to Create
 | # | Course | Duration | Priority |
 |---|--------|----------|----------|
-| 4 | Prompt Engineering & RAG | 4-6 weeks | 🔴 High |
-| 5 | Multi-Agent Systems | 4 weeks | 🔴 High |
-| 6 | MLOps & Model Serving | 6 weeks | 🟡 Medium |
-| 7 | Fine-tuning & Adaptation | 4 weeks | 🟡 Medium |
+| 7 | Prompt Engineering & RAG | 4-6 weeks | 🔴 High |
+| 8 | Multi-Agent Systems | 4 weeks | 🔴 High |
+| 9 | MLOps & Model Serving | 6 weeks | 🟡 Medium |
+| 10 | Fine-tuning & Adaptation | 4 weeks | 🟡 Medium |
 
 ---
 
@@ -212,18 +218,19 @@ By the end of this roadmap, you should be able to:
 ### Technical Skills
 - [ ] Explain transformer architecture from first principles
 - [ ] Design and implement RAG systems
-- [ ] Build reliable AI agents with proper harness engineering
+- [ ] Build reliable AI agents with proper system design
 - [ ] Deploy LLM services with proper MLOps
-- [ ] Implement secure agent authorization
+- [ ] Implement secure agent identity and authorization
 - [ ] Fine-tune models for specific domains
 - [ ] Evaluate AI systems with appropriate metrics
+- [ ] Understand and implement agentic protocols (MCP, A2A, ACP)
 
 ### Portfolio Artifacts
 - [ ] Working transformer implementation with visualizations
 - [ ] Production RAG system
-- [ ] Harness-engineered coding agent
+- [ ] Well-designed coding agent
 - [ ] Multi-agent workflow system
-- [ ] AAuth-secured agent deployment
+- [ ] Secured agent deployment with proper identity
 - [ ] Fine-tuned domain model
 - [ ] 2-3 capstone projects with documentation
 

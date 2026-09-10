@@ -1,0 +1,43 @@
+# Multimodal AI - Dependencies
+
+# Core
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+transformers>=4.35.0
+
+# Vision
+timm>=0.9.0
+pillow>=10.0.0
+opencv-python>=4.8.0
+
+# Vision-Language
+open_clip_torch>=2.20.0
+
+# Diffusion
+diffusers>=0.24.0
+accelerate>=0.24.0
+
+# Audio
+librosa>=0.10.0
+soundfile>=0.12.0
+
+# RAG/Retrieval
+sentence-transformers>=2.2.0
+faiss-cpu>=1.7.4  # or faiss-gpu
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.15.0
+
+# Data
+datasets>=2.14.0
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Utilities
+tqdm>=4.65.0
+rich>=13.0.0
+pyyaml>=6.0.0
+requests>=2.31.0
