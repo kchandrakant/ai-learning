@@ -1,0 +1,66 @@
+# Harness Engineering Learning Path - Dependencies
+# ================================================
+# Install with: pip install -r requirements.txt
+
+# Core LLM Client Libraries
+# -------------------------
+openai>=1.30.0                  # OpenAI API client
+anthropic>=0.25.0               # Anthropic API client
+httpx>=0.27.0                   # Async HTTP client (used by both)
+
+# Embeddings & Similarity (Module 2: Tool Selection)
+# --------------------------------------------------
+sentence-transformers>=2.7.0    # For embedding-based tool routing
+scikit-learn>=1.4.0             # For cosine_similarity
+numpy>=1.26.0                   # Numerical operations
+
+# Data Validation (Module 2 & 4)
+# ------------------------------
+pydantic>=2.7.0                 # Schema validation for tools
+jsonschema>=4.22.0              # JSON schema validation
+
+# Testing & Evaluation (Module 4)
+# -------------------------------
+pytest>=8.2.0                   # Test framework
+pytest-asyncio>=0.23.0          # Async test support
+pytest-timeout>=2.3.0           # Test timeouts
+
+# Sandboxing & Containers (Module 5)
+# ----------------------------------
+docker>=7.1.0                   # Docker SDK for container sandboxing
+
+# Observability & Logging (Module 5)
+# ----------------------------------
+structlog>=24.2.0               # Structured logging
+rich>=13.7.0                    # Rich console output
+
+# Async Support
+# -------------
+asyncio>=3.4.3                  # Async programming (usually built-in)
+aiofiles>=23.2.0                # Async file operations
+
+# Utilities
+# ---------
+python-dotenv>=1.0.0            # Environment variable management
+tenacity>=8.3.0                 # Retry logic with backoff
+tiktoken>=0.7.0                 # Token counting (OpenAI tokenizer)
+
+# Optional: Development Tools
+# ---------------------------
+ruff>=0.4.0                     # Fast Python linter
+mypy>=1.10.0                    # Type checking
+ipython>=8.24.0                 # Interactive Python shell
+
+# Optional: Tracing & Monitoring
+# ------------------------------
+# opentelemetry-api>=1.24.0     # OpenTelemetry tracing
+# opentelemetry-sdk>=1.24.0     # OpenTelemetry SDK
+# arize-phoenix>=4.0.0          # Phoenix observability (Arize)
+
+# Optional: Cloud Sandboxing
+# --------------------------
+# e2b>=0.17.0                   # E2B cloud sandbox SDK
+
+# Note: Some packages may require additional system dependencies:
+# - docker: Requires Docker Desktop or Docker Engine installed
+# - sentence-transformers: Downloads model files on first use (~90MB)

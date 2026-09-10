@@ -1,0 +1,27 @@
+# Deep Learning to Transformers Course Dependencies
+
+# Core Scientific Computing
+numpy>=1.24.0
+scipy>=1.11.0
+
+# Deep Learning Framework
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# NLP
+tokenizers>=0.15.0
+
+# Jupyter
+jupyter>=1.0.0
+ipykernel>=6.0.0
+
+# Progress bars
+tqdm>=4.66.0
+
+# Development
+pytest>=7.0.0

@@ -1,0 +1,30 @@
+# ML Foundations Course Dependencies
+
+# Core Scientific Computing
+numpy>=1.24.0
+scipy>=1.11.0
+
+# Data Manipulation
+pandas>=2.0.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.18.0
+
+# Machine Learning
+scikit-learn>=1.3.0
+
+# Gradient Boosting
+xgboost>=2.0.0
+lightgbm>=4.0.0
+
+# Jupyter
+jupyter>=1.0.0
+ipykernel>=6.0.0
+
+# Utilities
+tqdm>=4.66.0
+
+# Development
+pytest>=7.0.0

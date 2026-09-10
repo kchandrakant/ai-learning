@@ -1,0 +1,43 @@
+# AAuth Learning Path - Dependencies
+# Install with: pip install -r requirements.txt
+
+# =============================================================================
+# Cryptography & Signatures
+# =============================================================================
+cryptography>=42.0.0          # Ed25519 key generation and signing
+PyJWT>=2.8.0                  # JWT creation and verification
+jwcrypto>=1.5.0               # JWK/JWKS handling, JWK thumbprints
+
+# =============================================================================
+# HTTP & Web Framework
+# =============================================================================
+requests>=2.31.0              # HTTP client for agent requests
+httpx>=0.27.0                 # Async HTTP client (alternative)
+flask>=3.0.0                  # Web framework for PS/AS/Resource servers
+werkzeug>=3.0.0               # WSGI utilities (Flask dependency)
+
+# =============================================================================
+# HTTP Message Signatures (RFC 9421)
+# =============================================================================
+http-message-signatures>=0.5.0  # HTTP signature creation/verification
+
+# =============================================================================
+# Utilities
+# =============================================================================
+python-dotenv>=1.0.0          # Environment variable management
+pydantic>=2.5.0               # Data validation and settings
+rich>=13.7.0                  # Beautiful terminal output for demos
+click>=8.1.0                  # CLI utilities
+
+# =============================================================================
+# Development & Testing
+# =============================================================================
+pytest>=8.0.0                 # Testing framework
+pytest-asyncio>=0.23.0        # Async test support
+httpretty>=1.1.4              # HTTP mocking for tests
+
+# =============================================================================
+# Optional: For Module 08 Complete System
+# =============================================================================
+uvicorn>=0.27.0               # ASGI server (if using FastAPI)
+# fastapi>=0.109.0            # Alternative to Flask (uncomment if preferred)
