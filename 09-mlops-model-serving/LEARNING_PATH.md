@@ -250,6 +250,37 @@ Making it reliable and cost-effective.
 
 ---
 
+## 📚 Part 6: Hands-On Local Deployment
+
+Practical local deployment without cloud dependencies.
+
+### Step 17: Local Deployment with Ollama + Docker
+**Why it matters:** Not everyone has cloud access. Local deployment skills are essential for development, testing, and privacy-sensitive applications.
+
+**What we'll build:**
+- Ollama installation and configuration
+- Running open-weight models locally (Llama, Mistral, Phi)
+- Docker containerization for LLM services
+- Complete local inference stack with FastAPI
+- Performance tuning and troubleshooting
+
+**Key stack:**
+```
+Ollama (model serving)
+    ↓
+FastAPI (custom API layer)
+    ↓
+Docker Compose (orchestration)
+```
+
+**Why this matters:**
+- Zero API costs during development
+- Works offline
+- Privacy-sensitive deployments
+- Foundation for edge computing
+
+---
+
 ## 🗂️ Project Structure
 
 ```
@@ -274,6 +305,7 @@ mlops-model-serving/
 ├── 14_caching/
 ├── 15_cost_optimization/
 ├── 16_cicd/
+├── 17_local_deployment/
 │
 ├── demo/
 └── beyond/

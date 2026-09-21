@@ -1,0 +1,101 @@
+# =============================================================================
+# Domain Assistant - Docker Compose
+# =============================================================================
+# Local development and deployment setup with Ollama
+
+version: '3.8'
+
+services:
+  # ---------------------------------------------------------------------------
+  # Ollama LLM Service
+  # ---------------------------------------------------------------------------
+  ollama:
+    image: ollama/ollama:latest
+    container_name: domain-assistant-ollama
+    volumes:
+      - ollama_data:/root/.ollama
+    ports:
+      - "11434:11434"
+    # GPU support (uncomment for NVIDIA GPU)
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+
+  # ---------------------------------------------------------------------------
+  # Domain Assistant API
+  # ---------------------------------------------------------------------------
+  assistant:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: domain-assistant-api
+    depends_on:
+      ollama:
+        condition: service_healthy
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - OLLAMA_MODEL=llama3.2
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+      - LOG_LEVEL=INFO
+      - VECTOR_STORE_PATH=/app/data/vectorstore
+      - DOCS_PATH=/app/data/documents
+    volumes:
+      - vectorstore_data:/app/data/vectorstore
+      - documents_data:/app/data/documents
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    restart: unless-stopped
+
+  # ---------------------------------------------------------------------------
+  # Model Pull Helper (one-time setup)
+  # ---------------------------------------------------------------------------
+  model-pull:
+    image: curlimages/curl:latest
+    container_name: domain-assistant-model-pull
+    depends_on:
+      ollama:
+        condition: service_healthy
+    # Pull the model on first run
+    command: >
+      sh -c "
+        echo 'Pulling llama3.2 model...' &&
+        curl -X POST http://ollama:11434/api/pull -d '{\"name\": \"llama3.2\"}' &&
+        echo 'Model pull complete!'
+      "
+    restart: "no"
+
+# =============================================================================
+# Volumes
+# =============================================================================
+volumes:
+  ollama_data:
+    driver: local
+  vectorstore_data:
+    driver: local
+  documents_data:
+    driver: local
+
+# =============================================================================
+# Networks
+# =============================================================================
+networks:
+  default:
+    name: domain-assistant-network

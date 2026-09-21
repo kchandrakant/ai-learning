@@ -1,0 +1,109 @@
+# Capstone Project - Common Dependencies
+# Install with: pip install -r requirements.txt
+# 
+# Note: This is a starter set. Your specific project may need
+# additional dependencies based on your chosen option.
+
+# =============================================================================
+# Core Python
+# =============================================================================
+python-dotenv>=1.0.0          # Environment variable management
+pydantic>=2.5.0               # Data validation
+pydantic-settings>=2.1.0      # Settings management
+
+# =============================================================================
+# API Framework
+# =============================================================================
+fastapi>=0.109.0              # Web framework
+uvicorn>=0.27.0               # ASGI server
+httpx>=0.26.0                 # Async HTTP client
+requests>=2.31.0              # HTTP client
+
+# =============================================================================
+# LLM & AI
+# =============================================================================
+openai>=1.10.0                # OpenAI API client (works with Ollama too)
+ollama>=0.1.6                 # Ollama Python client
+tiktoken>=0.5.0               # Token counting
+
+# LangChain ecosystem (choose based on your project)
+langchain>=0.1.0              # LangChain core
+langchain-community>=0.0.10   # Community integrations
+langchain-openai>=0.0.5       # OpenAI integration
+langgraph>=0.0.20             # Agent graphs
+
+# LlamaIndex (alternative to LangChain)
+# llama-index>=0.10.0         # Uncomment if using LlamaIndex
+
+# =============================================================================
+# Vector Storage & RAG
+# =============================================================================
+chromadb>=0.4.22              # Vector database (local)
+# pgvector>=0.2.4             # PostgreSQL vectors (uncomment if using)
+sentence-transformers>=2.2.0  # Embedding models
+
+# =============================================================================
+# Data Processing
+# =============================================================================
+numpy>=1.24.0
+pandas>=2.0.0
+PyPDF2>=3.0.0                 # PDF processing
+python-docx>=1.1.0            # Word document processing
+beautifulsoup4>=4.12.0        # HTML parsing
+markdown>=3.5.0               # Markdown processing
+
+# =============================================================================
+# Testing & Evaluation
+# =============================================================================
+pytest>=7.4.0                 # Testing framework
+pytest-asyncio>=0.23.0        # Async test support
+pytest-cov>=4.1.0             # Coverage reporting
+
+# RAG evaluation
+ragas>=0.1.0                  # RAG evaluation metrics
+# deepeval>=0.20.0            # Alternative evaluation (uncomment if using)
+
+# =============================================================================
+# Observability
+# =============================================================================
+loguru>=0.7.0                 # Better logging
+prometheus-client>=0.19.0     # Metrics
+opentelemetry-api>=1.22.0     # Tracing
+opentelemetry-sdk>=1.22.0
+opentelemetry-instrumentation-fastapi>=0.43b0
+
+# =============================================================================
+# Development Tools
+# =============================================================================
+black>=23.12.0                # Code formatting
+ruff>=0.1.9                   # Fast linting
+mypy>=1.8.0                   # Type checking
+pre-commit>=3.6.0             # Git hooks
+
+# =============================================================================
+# Documentation
+# =============================================================================
+mkdocs>=1.5.0                 # Documentation site
+mkdocs-material>=9.5.0        # Material theme
+
+# =============================================================================
+# Optional: Multimodal (Option D)
+# =============================================================================
+# Uncomment if building multimodal project
+# pillow>=10.0.0              # Image processing
+# transformers>=4.36.0        # Hugging Face models
+# torch>=2.1.0                # PyTorch (for local models)
+
+# =============================================================================
+# Optional: Code Assistant (Option B)
+# =============================================================================
+# Uncomment if building code assistant
+# tree-sitter>=0.20.0         # Code parsing
+# pygments>=2.17.0            # Syntax highlighting
+
+# =============================================================================
+# Optional: Web Interface
+# =============================================================================
+# Uncomment if adding a web UI
+# gradio>=4.14.0              # Quick UI
+# streamlit>=1.30.0           # Alternative UI

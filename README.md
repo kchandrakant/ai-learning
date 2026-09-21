@@ -2,7 +2,7 @@
 
 A comprehensive, hands-on learning path for mastering AI/ML — from mathematical foundations to production LLM systems.
 
-**184 modules across 14 courses** | **6-12 months** | **Self-paced**
+**200+ modules across 16 courses** | **8-14 months** | **Self-paced**
 
 ---
 
@@ -23,7 +23,14 @@ By the end, you'll be able to:
 
 ---
 
-## 📚 The 14 Courses
+## 📚 The 16 Courses
+
+### Pre-Requisite (Course 00)
+*Essential skills before diving into ML*
+
+| # | Course | Modules | Duration | Description |
+|---|--------|---------|----------|-------------|
+| 00 | [foundations-preskills](./00-foundations-preskills/) | 6 | 1-2 weeks | Python patterns, NumPy, visualization, reading ML papers |
 
 ### Foundation Track (Courses 01-04)
 *Build deep understanding of what powers AI systems*
@@ -50,18 +57,19 @@ By the end, you'll be able to:
 
 | # | Course | Modules | Duration | Description |
 |---|--------|---------|----------|-------------|
-| 09 | [mlops-model-serving](./09-mlops-model-serving/) | 16 | 5-6 weeks | Inference optimization, deployment, monitoring |
+| 09 | [mlops-model-serving](./09-mlops-model-serving/) | 17 | 5-6 weeks | Inference optimization, deployment, local + cloud |
 | 10 | [agent-system-design](./10-agent-system-design/) | 13 | 4-5 weeks | Agent runtime architecture, evaluation |
 | 11 | [ai-security-identity](./11-ai-security-identity/) | 16 | 4-5 weeks | Agent identity, auth, access control |
 | 12 | [agentic-protocols](./12-agentic-protocols/) | 15 | 4-5 weeks | MCP, A2A, ACP, emerging standards |
 
-### Capstone Track (Courses 13-14)
-*Ethics, governance, and frontier developments*
+### Capstone Track (Courses 13-15)
+*Ethics, frontier developments, and integration project*
 
 | # | Course | Modules | Duration | Description |
 |---|--------|---------|----------|-------------|
 | 13 | [ai-ethics-responsible-ai](./13-ai-ethics-responsible-ai/) | 12 | 4-5 weeks | Alignment, bias, fairness, regulation, governance |
 | 14 | [emerging-ai-trends](./14-emerging-ai-trends/) | 14 | 4-5 weeks | System 1/2, Mamba, MoE, tabular, frontier research |
+| 15 | [capstone-project](./15-capstone-project/) | 5 options | 6-8 weeks | Build a complete AI system from scratch |
 
 ---
 
@@ -69,7 +77,12 @@ By the end, you'll be able to:
 
 ### Step 1: Choose Your Path
 
-**New to ML?** Start from the beginning:
+**Completely new to programming/ML?** Start with pre-skills:
+```
+00 → 01 → 02 → 03 → 04 → 05 → ... (follow the numbers)
+```
+
+**Know Python but new to ML?** Start from the beginning:
 ```
 01 → 02 → 03 → 04 → 05 → 06 → ... (follow the numbers)
 ```
@@ -87,6 +100,11 @@ By the end, you'll be able to:
 **Just want to fine-tune models?**
 ```
 03-transformer-architecture → 04-llm-internals → 07-fine-tuning-adaptation
+```
+
+**Ready to prove your skills?** Jump to capstone:
+```
+15-capstone-project (after completing relevant prerequisites)
 ```
 
 ### Step 2: Set Up a Course
@@ -140,23 +158,25 @@ Each course has a `.kiro/steering/` file that enables interactive, pair-programm
 
 ## 📅 Suggested Timeline
 
-### Full Curriculum: 14 Months
+### Full Curriculum: 12-14 Months
 
 | Phase | Months | Courses | Focus |
 |-------|--------|---------|-------|
+| **Pre-Skills** | 0.5 | 00 | Python patterns, NumPy, paper reading |
 | **Foundations** | 1-3 | 01, 02, 03, 04 | Math, neural nets, transformers, LLM internals |
 | **Applications** | 4-6 | 05, 06, 07, 08 | RAG, agents, fine-tuning, multimodal |
 | **Production** | 7-9 | 09, 10, 11, 12 | MLOps, system design, security, protocols |
 | **Capstone** | 10-11 | 13, 14 | Ethics, governance, emerging trends |
-| **Projects** | 12-14 | — | Build portfolio projects |
+| **Final Project** | 12-14 | 15 | Build complete AI system |
 
 ### Accelerated: 6 Months
 
 | Phase | Months | Courses | Notes |
 |-------|--------|---------|-------|
-| **Core** | 1-2 | 02, 03 | Skip 01 if you know basic ML |
+| **Core** | 1-2 | 02, 03 | Skip 00-01 if you know Python and basic ML |
 | **Applications** | 3-4 | 05, 06 | Focus on RAG and agents |
-| **Production** | 5-6 | 09, 10 | MLOps and system design |
+| **Production** | 5 | 09 | MLOps essentials |
+| **Capstone** | 6 | 15 | Build your project |
 
 ### Practitioner Fast-Track: 3 Months
 
@@ -164,7 +184,7 @@ Each course has a `.kiro/steering/` file that enables interactive, pair-programm
 |-------|---------|-------|
 | 1 | 05-prompt-engineering-rag | Most immediately practical |
 | 2 | 06-multi-agent-systems | Build agent applications |
-| 3 | 09-mlops-model-serving | Deploy to production |
+| 3 | 09-mlops-model-serving | Deploy to production (includes local Ollama+Docker) |
 
 ---
 
@@ -214,6 +234,9 @@ Feeling confused is normal and means you're learning. Push through, then revisit
 
 ## ✅ Progress Checklist
 
+### Pre-Requisite
+- [ ] **00-foundations-preskills**: Python patterns, NumPy, visualization, reading ML papers
+
 ### Foundation Track
 - [ ] **01-ml-foundations**: Linear algebra, calculus, probability, classical ML
 - [ ] **02-deep-learning-to-transformers**: Perceptron → attention mechanism
@@ -235,20 +258,26 @@ Feeling confused is normal and means you're learning. Push through, then revisit
 ### Capstone Track
 - [ ] **13-ai-ethics-responsible-ai**: Alignment, bias, fairness, responsible deployment
 - [ ] **14-emerging-ai-trends**: System 1/2, Mamba, MoE, frontier research
+- [ ] **15-capstone-project**: Build complete AI system (choose from 5 options)
 
-### Capstone Projects (Choose 2-3)
-- [ ] RAG-powered documentation system
-- [ ] Multi-agent research assistant
-- [ ] Fine-tuned domain-specific model
-- [ ] Production-deployed AI service
-- [ ] Open source contribution
+### Portfolio Projects (built during Course 15)
+- [ ] Domain-specific RAG assistant
+- [ ] Code assistant with repository understanding
+- [ ] Research agent with multi-source synthesis
+- [ ] Multimodal application
+- [ ] Custom project of your choice
 
 ---
 
 ## 🛠️ Prerequisites
 
+### For Pre-Requisite Course (00)
+- Basic programming experience in any language
+- High school algebra
+- Willingness to practice
+
 ### For Foundation Track (01-04)
-- Python basics (variables, functions, loops, classes)
+- Course 00 completed (or equivalent Python/NumPy skills)
 - High school math (algebra, basic functions)
 - Willingness to work through equations
 
@@ -262,10 +291,15 @@ Feeling confused is normal and means you're learning. Push through, then revisit
 - Docker basics
 - API development experience (REST)
 
+### For Capstone (15)
+- Completed at least 5 relevant courses
+- Ready to build a complete system independently
+
 ### Hardware
 - **Minimum**: CPU-only, 8GB RAM (will be slow for some modules)
 - **Recommended**: GPU with 8GB+ VRAM, 16GB RAM
 - **Cloud alternative**: Google Colab, Lambda Labs, etc.
+- **Local LLM**: Ollama works great for Course 09 and Capstone projects
 
 ---
 
@@ -320,7 +354,9 @@ This curriculum synthesizes insights from:
 
 ---
 
-**Ready to start?** → Open [01-ml-foundations/LEARNING_PATH.md](./01-ml-foundations/LEARNING_PATH.md)
+**Ready to start?** → Open [00-foundations-preskills/LEARNING_PATH.md](./00-foundations-preskills/LEARNING_PATH.md)
+
+**Already know Python/NumPy?** → Start with [01-ml-foundations/LEARNING_PATH.md](./01-ml-foundations/LEARNING_PATH.md)
 
 **Already know ML?** → Jump to [05-prompt-engineering-rag/LEARNING_PATH.md](./05-prompt-engineering-rag/LEARNING_PATH.md)
 

@@ -1,0 +1,37 @@
+# Foundations & Pre-Skills - Course 00
+# Core dependencies for Python, NumPy, and visualization modules
+
+# NumPy for numerical computing
+numpy>=1.24.0
+
+# Matplotlib for visualization
+matplotlib>=3.7.0
+
+# Jupyter for notebook workflow
+jupyter>=1.0.0
+jupyterlab>=4.0.0
+notebook>=7.0.0
+
+# IPython for enhanced interactive Python
+ipython>=8.0.0
+
+# Optional but recommended
+# ----------------------------
+
+# Pandas for data manipulation (used in some examples)
+pandas>=2.0.0
+
+# Seaborn for statistical visualization (built on matplotlib)
+seaborn>=0.12.0
+
+# For paper reading module - PDF handling
+# pypdf>=3.0.0  # Uncomment if you want to work with PDF papers locally
+
+# Development tools
+# ----------------------------
+
+# Code formatting
+black>=23.0.0
+
+# Type checking (mentioned in Python essentials)
+mypy>=1.0.0
