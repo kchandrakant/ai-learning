@@ -155,7 +155,7 @@ Modern variants:
 
 ## What's Next?
 
-**Evolutions** — Modern improvements that power LLaMA, GPT-4, and other state-of-the-art models:
+**Beyond** — Modern improvements that power LLaMA, GPT-4, and other state-of-the-art models:
 - Pre-Layer Norm
 - Rotary Position Embeddings (RoPE)
 - Grouped Query Attention (GQA)

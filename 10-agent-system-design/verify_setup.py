@@ -171,7 +171,7 @@ def check_directory_structure() -> bool:
         "07_self_improving",
         "08_benchmarks",
         "demo",
-        "evolutions",
+        "beyond",
     ]
     
     base_path = Path(__file__).parent

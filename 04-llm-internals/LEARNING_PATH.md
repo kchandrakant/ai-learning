@@ -324,7 +324,7 @@ llm-internals/
 ├── 12_model_analysis/
 │
 ├── demo/
-└── evolutions/
+└── beyond/
 ```
 
 ---

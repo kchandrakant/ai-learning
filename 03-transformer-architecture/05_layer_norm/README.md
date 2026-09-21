@@ -117,7 +117,7 @@ output = LayerNorm(x + Sublayer(x))
 output = x + Sublayer(LayerNorm(x))
 ```
 
-Pre-LN is more stable for training deep networks — we'll explore this in the Evolutions section.
+Pre-LN is more stable for training deep networks — we'll explore this in the Beyond section.
 
 ## Files
 

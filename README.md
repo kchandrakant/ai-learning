@@ -2,7 +2,7 @@
 
 A comprehensive, hands-on learning path for mastering AI/ML — from mathematical foundations to production LLM systems.
 
-**158 modules across 12 courses** | **6-12 months** | **Self-paced**
+**184 modules across 14 courses** | **6-12 months** | **Self-paced**
 
 ---
 
@@ -23,7 +23,7 @@ By the end, you'll be able to:
 
 ---
 
-## 📚 The 12 Courses
+## 📚 The 14 Courses
 
 ### Foundation Track (Courses 01-04)
 *Build deep understanding of what powers AI systems*
@@ -54,6 +54,14 @@ By the end, you'll be able to:
 | 10 | [agent-system-design](./10-agent-system-design/) | 13 | 4-5 weeks | Agent runtime architecture, evaluation |
 | 11 | [ai-security-identity](./11-ai-security-identity/) | 16 | 4-5 weeks | Agent identity, auth, access control |
 | 12 | [agentic-protocols](./12-agentic-protocols/) | 15 | 4-5 weeks | MCP, A2A, ACP, emerging standards |
+
+### Capstone Track (Courses 13-14)
+*Ethics, governance, and frontier developments*
+
+| # | Course | Modules | Duration | Description |
+|---|--------|---------|----------|-------------|
+| 13 | [ai-ethics-responsible-ai](./13-ai-ethics-responsible-ai/) | 12 | 4-5 weeks | Alignment, bias, fairness, regulation, governance |
+| 14 | [emerging-ai-trends](./14-emerging-ai-trends/) | 14 | 4-5 weeks | System 1/2, Mamba, MoE, tabular, frontier research |
 
 ---
 
@@ -116,7 +124,7 @@ Each course contains:
 │   └── README.md
 ├── ...
 ├── demo/                 ← Hands-on demonstrations
-└── evolutions/           ← Advanced topics and future directions
+└── beyond/               ← Advanced topics and future directions
 ```
 
 ### Step 4: Interactive Learning with Kiro
@@ -132,14 +140,15 @@ Each course has a `.kiro/steering/` file that enables interactive, pair-programm
 
 ## 📅 Suggested Timeline
 
-### Full Curriculum: 12 Months
+### Full Curriculum: 14 Months
 
 | Phase | Months | Courses | Focus |
 |-------|--------|---------|-------|
 | **Foundations** | 1-3 | 01, 02, 03, 04 | Math, neural nets, transformers, LLM internals |
 | **Applications** | 4-6 | 05, 06, 07, 08 | RAG, agents, fine-tuning, multimodal |
 | **Production** | 7-9 | 09, 10, 11, 12 | MLOps, system design, security, protocols |
-| **Capstone** | 10-12 | — | Build portfolio projects |
+| **Capstone** | 10-11 | 13, 14 | Ethics, governance, emerging trends |
+| **Projects** | 12-14 | — | Build portfolio projects |
 
 ### Accelerated: 6 Months
 
@@ -222,6 +231,10 @@ Feeling confused is normal and means you're learning. Push through, then revisit
 - [ ] **10-agent-system-design**: Build production agent harness
 - [ ] **11-ai-security-identity**: Implement agent auth system
 - [ ] **12-agentic-protocols**: Implement MCP server
+
+### Capstone Track
+- [ ] **13-ai-ethics-responsible-ai**: Alignment, bias, fairness, responsible deployment
+- [ ] **14-emerging-ai-trends**: System 1/2, Mamba, MoE, frontier research
 
 ### Capstone Projects (Choose 2-3)
 - [ ] RAG-powered documentation system

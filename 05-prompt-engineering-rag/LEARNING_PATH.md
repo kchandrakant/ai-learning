@@ -249,7 +249,7 @@ prompt-engineering-rag/
 ├── demo/
 │   └── README.md             # Hands-on demonstrations
 │
-└── evolutions/
+└── beyond/
     └── README.md             # Future directions
 ```
 

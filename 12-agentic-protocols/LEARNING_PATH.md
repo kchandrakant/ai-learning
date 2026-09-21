@@ -322,7 +322,7 @@ agentic-protocols/
 ├── 15_future_protocols/
 │
 ├── demo/
-└── evolutions/
+└── beyond/
 ```
 
 ---

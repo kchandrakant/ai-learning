@@ -1,6 +1,6 @@
 # Transformer Architecture: A Step-by-Step Learning Journey
 
-This guide walks through implementing a transformer from scratch, starting with the original 2017 "Attention Is All You Need" architecture, then exploring the key evolutions that power modern LLMs like GPT-4, LLaMA, and Claude.
+This guide walks through implementing a transformer from scratch, starting with the original 2017 "Attention Is All You Need" architecture, then exploring the key advances that power modern LLMs like GPT-4, LLaMA, and Claude.
 
 ---
 
@@ -120,11 +120,11 @@ output = LayerNorm(x + Sublayer(x))
 
 ---
 
-## 📚 Part 2: Architectural Evolutions (2018-2024)
+## 📚 Part 2: Architectural Advances (2018-2024)
 
 These improvements power modern models like GPT-4, LLaMA, Mistral, and Claude.
 
-> **Note**: See [evolutions/README.md](evolutions/README.md) for all evolutions including frontier research (looped transformers, MoE, etc.)
+> **Note**: See [beyond/README.md](beyond/README.md) for all advances including frontier research (looped transformers, MoE, etc.)
 
 ### Evolution 1: Pre-Layer Normalization (GPT-2, 2019)
 **The problem:** Post-LN transformers are hard to train at scale without careful learning rate warmup.
@@ -228,8 +228,8 @@ transformer-architecture/
 ├── 08_transformer/
 │   └── transformer.py
 │
-├── evolutions/
-│   └── README.md           # All evolutions (hands-on + conceptual)
+├── beyond/
+│   └── README.md           # All advances (hands-on + conceptual)
 │
 ├── demo/
 │   └── demo.py

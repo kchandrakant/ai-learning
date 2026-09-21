@@ -269,7 +269,7 @@ fine-tuning-adaptation/
 ├── 14_continual_learning/
 │
 ├── demo/
-└── evolutions/
+└── beyond/
 ```
 
 ---

@@ -60,7 +60,7 @@ Scaled up GPT, demonstrated emergent zero-shot capabilities.
 - **Key innovations**: Pre-LayerNorm, larger scale (1.5B params), zero-shot learning
 - **Impact**: Showed scaling enables emergent capabilities
 - **Link**: [OpenAI Blog](https://openai.com/research/better-language-models)
-- **Status**: 🔧 Hands-on (Pre-LayerNorm in evolutions/)
+- **Status**: 🔧 Hands-on (Pre-LayerNorm in beyond/)
 
 ---
 
@@ -72,7 +72,7 @@ Simplified LayerNorm by removing mean centering.
 - **Key innovations**: Faster normalization, equivalent quality
 - **Impact**: Used in LLaMA, Mistral, and most modern models
 - **Link**: [arXiv:1910.07467](https://arxiv.org/abs/1910.07467)
-- **Status**: 🔧 Hands-on (evolutions/rmsnorm.py)
+- **Status**: 🔧 Hands-on (beyond/rmsnorm.py)
 
 ---
 
@@ -98,7 +98,7 @@ Introduced gated linear units with Swish activation for FFN layers.
 - **Key innovations**: SwiGLU activation, better optimization landscape
 - **Impact**: Used in PaLM, LLaMA, Mistral
 - **Link**: [arXiv:2002.05202](https://arxiv.org/abs/2002.05202)
-- **Status**: 🔧 Hands-on (evolutions/swiglu.py)
+- **Status**: 🔧 Hands-on (beyond/swiglu.py)
 
 ---
 
@@ -122,7 +122,7 @@ Introduced Rotary Position Embeddings (RoPE).
 - **Key innovations**: Position encoded via rotation, relative position naturally emerges
 - **Impact**: Used in LLaMA, Mistral, GPT-NeoX, PaLM
 - **Link**: [arXiv:2104.09864](https://arxiv.org/abs/2104.09864)
-- **Status**: 🔧 Hands-on (evolutions/rope.py)
+- **Status**: 🔧 Hands-on (beyond/rope.py)
 
 ---
 
@@ -186,7 +186,7 @@ Open-weights models competitive with much larger closed models.
 - **Key innovations**: Combined best practices (RoPE, SwiGLU, RMSNorm, Pre-LN)
 - **Impact**: Sparked open-source LLM movement, basis for Alpaca, Vicuna, etc.
 - **Link**: [arXiv:2302.13971](https://arxiv.org/abs/2302.13971)
-- **Status**: 🔧 Hands-on (Modern architecture in evolutions/)
+- **Status**: 🔧 Hands-on (Modern architecture in beyond/)
 
 ---
 
@@ -198,7 +198,7 @@ Grouped-Query Attention for efficient KV cache during inference.
 - **Key innovations**: Share KV heads across query groups
 - **Impact**: Used in LLaMA 2, Mistral, Gemma
 - **Link**: [arXiv:2305.13245](https://arxiv.org/abs/2305.13245)
-- **Status**: 🔧 Hands-on (evolutions/grouped_query_attention.py)
+- **Status**: 🔧 Hands-on (beyond/grouped_query_attention.py)
 
 ---
 
@@ -274,7 +274,7 @@ Formally proves that looped shallow networks can match or exceed deep networks o
 - **Key innovations**: Mathematical proof of loop power, depth via iteration
 - **Impact**: Theoretical foundation for looped transformers
 - **Link**: [OpenReview](https://openreview.net/forum?id=din0lGfZFd)
-- **Status**: 🔬 Frontier (evolutions/advanced/)
+- **Status**: 🔬 Frontier (beyond/advanced/)
 
 ---
 

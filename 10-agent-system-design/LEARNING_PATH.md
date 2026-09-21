@@ -1,6 +1,6 @@
 # Agent System Design Learning Path
 
-This guide walks through designing and building production-grade AI agent systems from scratch, starting with foundational patterns, then exploring advanced self-improvement techniques and future evolutions.
+This guide walks through designing and building production-grade AI agent systems from scratch, starting with foundational patterns, then exploring advanced self-improvement techniques and future directions.
 
 ---
 
@@ -309,11 +309,11 @@ python demo/<demo_name>.py --verbose
 
 ---
 
-## 🔮 Evolutions: The Future of Agent System Design
+## 🔮 Beyond: The Future of Agent System Design
 
 Emerging patterns and future directions (2024-2027+).
 
-### Covered Evolutions
+### Covered Advances
 | Evolution | Year | Key Innovation |
 |-----------|------|----------------|
 | Self-Improving Systems | 2026 | Propose-evaluate-accept loops |
@@ -358,7 +358,7 @@ agent-system-design/
 ├── demo/                     # Hands-on demonstrations
 │   └── README.md
 │
-└── evolutions/               # Future directions & emerging patterns
+└── beyond/               # Future directions & emerging patterns
     └── README.md
 ```
 
@@ -391,7 +391,7 @@ Week 5: Production
 Week 6: Advanced
 ├── Module 11: Self-Improving Systems
 ├── Module 12: Research Benchmarks
-└── Explore evolutions/
+└── Explore beyond/
 ```
 
 ---
