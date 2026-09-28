@@ -4,230 +4,303 @@ AI moves fast. Techniques from two years ago may already be obsolete. Staying cu
 
 ---
 
-## 🎯 Learning Objectives
+## 🎯 Why This Matters
 
-By the end of this module, you will be able to:
-- Find relevant papers and resources efficiently
-- Filter high-signal information sources
-- Build a sustainable system for staying updated
-- Know where to look for specific topics
-- Avoid information overload
+The field moves faster than any individual can track. But you don't need to track everything — you need a **system** that surfaces what matters for your work.
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                 The Information Overload Problem                    │
+│                                                                     │
+│   Daily arXiv submissions (cs.LG): 50-100+ papers                   │
+│   Twitter ML posts: Thousands                                       │
+│   New models announced: Weekly                                      │
+│   Blog posts: Hundreds                                              │
+│                                                                     │
+│   You cannot read everything. You shouldn't try.                    │
+│                                                                     │
+│   The goal is NOT: "Know everything happening in AI"                │
+│   The goal IS: "Have a system to find what I need, when I need it"  │
+│                                                                     │
+│   This module teaches you to build that system.                     │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### The Half-Life of ML Knowledge
+
+| Knowledge Type | Half-Life | Examples |
+|----------------|-----------|----------|
+| Math fundamentals | Decades | Linear algebra, calculus, probability |
+| Core algorithms | 5-10 years | Backprop, SGD, attention mechanism |
+| Architectures | 2-5 years | Transformers, CNNs, specific models |
+| Best practices | 1-2 years | Training recipes, hyperparameters |
+| SOTA models | Months | GPT-X, latest checkpoints |
+| Library APIs | Months | Specific function calls |
+
+**Implication:** Focus your deep learning on fundamentals. Stay loosely aware of trends. Deep dive only when you need something specific.
 
 ---
 
 ## 📚 Part 1: The Information Landscape
 
-### The Speed of Change
+### Source Types Compared
 
-| Year | Major Development |
-|------|-------------------|
-| 2017 | Transformers ("Attention Is All You Need") |
-| 2018 | BERT, GPT |
-| 2019 | GPT-2 |
-| 2020 | GPT-3, Vision Transformers |
-| 2021 | CLIP, Codex, LoRA |
-| 2022 | ChatGPT, Stable Diffusion, InstructGPT |
-| 2023 | GPT-4, LLaMA, Claude 2, Mixtral |
-| 2024 | Claude 3, Gemini, open-weight models explode |
-| 2025 | Agents, reasoning models, MCP/A2A protocols |
-| 2026 | ... |
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                 Information Source Spectrum                         │
+│                                                                     │
+│   Speed          ◀─────────────────────────────────────▶           │
+│   (fast)                                           (slow)           │
+│                                                                     │
+│   Twitter  Blogs  Newsletters  Papers  Conferences  Books           │
+│     │        │        │          │          │         │             │
+│   Hours    Days    Weekly    Months    6-12mo     1-2yr             │
+│                                                                     │
+│   Noise         ◀─────────────────────────────────────▶            │
+│   (high)                                           (low)            │
+│                                                                     │
+│   Twitter  Blogs  arXiv    Newsletters  Conferences  Books          │
+│                                                                     │
+│   Depth          ◀─────────────────────────────────────▶           │
+│   (shallow)                                        (deep)           │
+│                                                                     │
+│   Twitter  News  Blogs  Newsletters  Papers  Books                  │
+│                                                                     │
+│   Strategy: Use fast sources for awareness, slow sources for depth  │
+└─────────────────────────────────────────────────────────────────────┘
+```
 
-**The half-life of ML knowledge is ~2 years.** Techniques you learn today may need updating. The fundamentals (math, core algorithms) last longer, but applications and best practices evolve rapidly.
+### Speed vs Quality Tradeoff
 
-### Information Sources by Type
-
-| Source | Update Speed | Signal/Noise | Depth |
-|--------|-------------|--------------|-------|
-| arXiv preprints | Hours | Low | High |
-| Twitter/X | Hours | Very low | Low |
-| Blog posts | Days-weeks | Medium | Medium |
-| Newsletters | Weekly | High | Medium |
-| Conference papers | 6-12 months | High | High |
-| Courses/books | 1-2 years | High | Very high |
-
-**Trade-off:** Speed vs. quality. The fastest sources have the most noise.
+| Source | Update Speed | Signal/Noise | Depth | Best For |
+|--------|--------------|--------------|-------|----------|
+| Twitter/X | Hours | Very Low | Shallow | Breaking news, trends |
+| arXiv | Hours | Low-Medium | High | Latest research |
+| Blogs | Days-Weeks | Medium | Medium | Explanations, tutorials |
+| Newsletters | Weekly | High | Medium | Curated summaries |
+| Conference papers | 6-12 months | High | High | Vetted research |
+| Books/Courses | 1-2 years | Very High | Very High | Foundations |
 
 ---
 
 ## 📚 Part 2: Primary Sources
 
-### arXiv — The Firehose
+### arXiv — The Research Firehose
 
-[arxiv.org](https://arxiv.org) hosts preprints (papers before peer review). Most ML research appears here first.
+[arxiv.org](https://arxiv.org) hosts preprints before peer review. Most ML research appears here first.
 
-**Key categories:**
-- `cs.LG` — Machine Learning
-- `cs.CL` — Computation and Language (NLP)
-- `cs.CV` — Computer Vision
-- `cs.AI` — Artificial Intelligence
-- `stat.ML` — Statistics: Machine Learning
+**Key Categories:**
 
-**How to use:**
+| Category | Focus | Daily Volume |
+|----------|-------|--------------|
+| cs.LG | Machine Learning | 50-100+ |
+| cs.CL | Computation and Language (NLP) | 30-50 |
+| cs.CV | Computer Vision | 40-70 |
+| cs.AI | Artificial Intelligence | 20-40 |
+| stat.ML | Statistical ML | 10-20 |
+
+**How to use arXiv:**
 ```
-# Daily listings
-https://arxiv.org/list/cs.LG/recent
-
-# Search
-https://arxiv.org/search/?query=transformer&searchtype=all
+Daily listings:    https://arxiv.org/list/cs.LG/recent
+Search:            https://arxiv.org/search/
+Alerts:            https://arxiv.org/help/subscribe (email alerts)
 ```
 
-**Warning:** 50-100+ new papers daily in cs.LG. You cannot read them all. Use filters (below).
+> **Warning:** You cannot read 50+ papers per day. Use arXiv for targeted searches, not browsing. Let curated sources filter for you.
 
 ### Semantic Scholar — Smart Search
 
 [semanticscholar.org](https://www.semanticscholar.org/)
 
-Better than Google Scholar for ML:
+Better than Google Scholar for ML because:
 - AI-powered recommendations
 - "Highly influential citations" highlights
 - Research feeds based on your interests
 - TLDR summaries for papers
 
-**Pro tip:** Create an account and build a "library" of papers. It learns your interests.
+**Pro tips:**
+- Create an account and build a library
+- Use "Research Feeds" for personalized recommendations
+- Check "Highly Influential Citations" to find seminal papers
 
-### Papers With Code — Papers + Implementations
+### Papers With Code — Research + Implementation
 
 [paperswithcode.com](https://paperswithcode.com/)
 
 Essential features:
 - Papers linked to GitHub implementations
 - State-of-the-art leaderboards by task
-- Datasets with benchmarks
 - Methods and components explained
+- Datasets with benchmarks
 
 **Use for:**
 - "What's the current best model for [task]?"
 - "Is there code for this paper?"
 - Discovering papers by browsing tasks
 
-### Connected Papers — Visualize Relationships
+### Connected Papers — Visualize the Literature
 
 [connectedpapers.com](https://www.connectedpapers.com/)
 
-Enter a paper, get a visual graph of related papers:
-- **Prior work:** What this paper builds on
-- **Derivative work:** What built on this paper
-- **Similar work:** Papers in the same area
+Enter a paper, get a visual graph showing:
+- Prior work (what this paper builds on)
+- Derivative work (what built on this paper)
+- Similar work (papers in the same area)
 
 **Use for:**
 - Understanding a new research area
-- Finding papers you missed
 - Literature reviews
+- Finding papers you missed
 
 ---
 
-## 📚 Part 3: Curated Sources
+## 📚 Part 3: Curated Sources (High Signal)
 
-These sources filter the firehose for you.
+These sources filter the firehose for you. **This is where you should spend most of your "staying current" time.**
 
-### Newsletters
+### Newsletters — Weekly Digests
 
-| Newsletter | Focus | Frequency |
-|------------|-------|-----------|
-| [The Batch](https://www.deeplearning.ai/the-batch/) | General AI news | Weekly |
-| [ImportAI](https://jack-clark.net/) | AI policy + research | Weekly |
-| [Davis Summarizes Papers](https://dblalock.substack.com/) | Paper summaries | Weekly |
-| [The Gradient](https://thegradient.pub/) | In-depth articles | Bi-weekly |
-| [Ahead of AI](https://magazine.sebastianraschka.com/) | LLMs, research | Weekly |
+| Newsletter | Focus | Frequency | Why Subscribe |
+|------------|-------|-----------|---------------|
+| [The Batch](https://www.deeplearning.ai/the-batch/) | General AI | Weekly | Andrew Ng's perspective, accessible |
+| [ImportAI](https://jack-clark.net/) | AI policy + research | Weekly | Policy implications, big picture |
+| [Ahead of AI](https://magazine.sebastianraschka.com/) | LLMs, research | Weekly | Technical depth, practitioner focus |
+| [Davis Summarizes Papers](https://dblalock.substack.com/) | Paper summaries | Weekly | Quick paper digests |
+| [The Gradient](https://thegradient.pub/) | In-depth articles | Bi-weekly | Long-form analysis |
+| [TLDR AI](https://tldr.tech/ai) | Daily news | Daily | Quick headlines |
 
-**Recommendation:** Subscribe to 2-3 newsletters. More becomes noise.
+**Recommendation:** Subscribe to 2-3 newsletters max. More becomes noise.
 
-### Blogs — High-Quality Explanations
+### Blogs — Deep Explanations
 
-| Blog | Known For |
-|------|-----------|
-| [Lil'Log](https://lilianweng.github.io/) | Comprehensive survey posts |
-| [Jay Alammar](https://jalammar.github.io/) | Visual explanations (Illustrated Transformer) |
-| [Andrej Karpathy](https://karpathy.ai/) | Deep, accessible explanations |
-| [Chip Huyen](https://huyenchip.com/blog/) | MLOps, practical ML |
-| [Sebastian Raschka](https://sebastianraschka.com/blog/) | LLMs, research insights |
-| [Eugene Yan](https://eugeneyan.com/) | Production ML, RecSys |
+| Blog | Author | Known For | URL |
+|------|--------|-----------|-----|
+| Lil'Log | Lilian Weng | Comprehensive surveys | lilianweng.github.io |
+| Jay Alammar | Jay Alammar | Visual explanations | jalammar.github.io |
+| Karpathy's Blog | Andrej Karpathy | Deep, accessible | karpathy.ai |
+| Chip Huyen | Chip Huyen | MLOps, practical ML | huyenchip.com/blog |
+| Sebastian Raschka | Sebastian Raschka | LLMs, tutorials | sebastianraschka.com/blog |
+| Eugene Yan | Eugene Yan | Production ML, RecSys | eugeneyan.com |
+| colah's blog | Chris Olah | Neural network intuitions | colah.github.io |
 
 ### YouTube — Video Explanations
 
-| Channel | Style |
-|---------|-------|
-| [Yannic Kilcher](https://www.youtube.com/@YannicKilcher) | Paper deep-dives |
-| [Two Minute Papers](https://www.youtube.com/@TwoMinutePapers) | Quick summaries |
-| [3Blue1Brown](https://www.youtube.com/@3blue1brown) | Visual math/ML explanations |
-| [Andrej Karpathy](https://www.youtube.com/@AndrejKarpathy) | Neural networks from scratch |
-| [StatQuest](https://www.youtube.com/@statquest) | Statistics and ML basics |
+| Channel | Style | Best For |
+|---------|-------|----------|
+| [Yannic Kilcher](https://www.youtube.com/@YannicKilcher) | Paper deep-dives | Understanding new papers |
+| [Andrej Karpathy](https://www.youtube.com/@AndrejKarpathy) | From-scratch tutorials | Building intuition |
+| [3Blue1Brown](https://www.youtube.com/@3blue1brown) | Visual math | Understanding concepts |
+| [Two Minute Papers](https://www.youtube.com/@TwoMinutePapers) | Quick summaries | Awareness |
+| [StatQuest](https://www.youtube.com/@statquest) | Statistics basics | Foundation building |
+| [Mutual Information](https://www.youtube.com/@EntropicEvidence) | Technical deep-dives | Research understanding |
 
 ---
 
 ## 📚 Part 4: Social Sources
 
-### Twitter/X
+### Twitter/X — High Noise, Potentially High Signal
 
-High noise, but can be high signal if you curate carefully.
+Twitter is noisy, but can be high-signal if curated carefully.
 
-**Key accounts to follow:**
+**Key Accounts (Research):**
 
 | Account | Focus |
 |---------|-------|
-| @kaborepharma | Breaking ML research |
-| @_akhaliq | Paper announcements |
-| @ylecun | AI research (Meta) |
-| @iaborepharma | Paper summaries |
+| @_akhaliq | Paper announcements (prolific) |
+| @ylecun | AI research (Meta, opinions) |
+| @kaborepharma | Paper highlights |
 | @AndrewYNg | AI education |
-| @sama | OpenAI, AI industry |
+| @hardmaru | Research + creative ML |
+| @jeffdean | Google AI |
+
+**Key Accounts (Industry):**
+
+| Account | Focus |
+|---------|-------|
+| @sama | OpenAI |
 | @ClementDelangue | Hugging Face, open source |
+| @EMostaque | Stability AI |
+| @sataborepharma | Model releases |
 
-**Lists > Individual follows:** Create or subscribe to ML-focused lists to reduce noise.
+**Twitter Strategy:**
+1. Create a dedicated ML list (don't pollute your main feed)
+2. Follow accounts, but view via list
+3. Check 2-3 times per week, not daily
+4. Mute aggressively
 
-**Warning:** Twitter rewards hot takes over accuracy. Verify claims before believing them.
+> **Warning:** Twitter rewards hot takes over accuracy. Verify claims before believing them.
 
 ### Reddit
 
-| Subreddit | Focus |
-|-----------|-------|
-| r/MachineLearning | Research discussion |
-| r/LocalLLaMA | Open-source LLMs |
-| r/learnmachinelearning | Learning resources |
-| r/artificial | General AI |
+| Subreddit | Focus | Quality | Frequency |
+|-----------|-------|---------|-----------|
+| r/MachineLearning | Research discussion | High | Daily |
+| r/LocalLLaMA | Open-source LLMs | Medium-High | Very active |
+| r/learnmachinelearning | Learning resources | Medium | Daily |
+| r/artificial | General AI | Low-Medium | Daily |
 
-**Quality:** r/MachineLearning has good paper discussions. Others vary.
+**r/MachineLearning** has good paper discussions. The "What are you reading?" threads are useful.
 
-### Discord/Slack
+### Discord/Slack Communities
 
-Many communities have active Discords:
-- Hugging Face Discord
-- Eleuther AI Discord
-- LangChain Discord
-- Various paper reading groups
-
-**Pro:** Real-time discussion, quick answers
-**Con:** Time-consuming, easy to get distracted
+| Community | Focus | Good For |
+|-----------|-------|----------|
+| Hugging Face Discord | Transformers, NLP | Quick questions, announcements |
+| Eleuther AI Discord | Open research | Research discussions |
+| MLOps Community Slack | Production ML | Practical advice |
+| Weights & Biases Discord | ML experiments | Tool-specific help |
 
 ---
 
 ## 📚 Part 5: Conferences
 
-Major venues where peer-reviewed research is published:
+### Top ML Venues
 
-### Top ML Conferences
-
-| Conference | Focus | When |
-|------------|-------|------|
-| NeurIPS | General ML | December |
-| ICML | General ML | July |
-| ICLR | Representation learning | May |
-| CVPR | Computer vision | June |
-| ACL | NLP | July |
-| EMNLP | NLP | November |
+| Conference | Focus | When | Acceptance Rate |
+|------------|-------|------|-----------------|
+| NeurIPS | General ML | December | ~25% |
+| ICML | General ML | July | ~25% |
+| ICLR | Representation learning | May | ~30% |
+| CVPR | Computer vision | June | ~25% |
+| ACL | NLP | July | ~25% |
+| EMNLP | NLP | November | ~25% |
 
 ### Following Without Attending
 
-- **Conference proceedings:** Released online (free)
+You don't need to attend conferences to benefit:
+
+- **Proceedings:** Released online for free
 - **Best paper awards:** High-signal filter
-- **Recorded talks:** Often on YouTube or SlidesLive
+- **Recorded talks:** YouTube, SlidesLive
 - **Twitter threads:** People summarize key papers
+- **OpenReview:** ICLR reviews are public
 
-### Conference Calendar
+### Conference Timeline
 
-- Papers submitted ~6 months before conference
-- Accepted papers announced ~2-3 months before
-- Papers often on arXiv before acceptance
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                 Conference Paper Lifecycle                          │
+│                                                                     │
+│   Submission deadline                                               │
+│        │                                                            │
+│        ▼                                                            │
+│   Reviews (2-3 months)                                              │
+│        │                                                            │
+│        ▼                                                            │
+│   Decisions announced ← Papers often on arXiv here                  │
+│        │                                                            │
+│        ▼                                                            │
+│   Camera-ready (1-2 months)                                         │
+│        │                                                            │
+│        ▼                                                            │
+│   Conference ← Talks, networking                                    │
+│        │                                                            │
+│        ▼                                                            │
+│   Proceedings released ← Full access                                │
+│                                                                     │
+│   Total: ~6-9 months from submission to conference                  │
+└─────────────────────────────────────────────────────────────────────┘
+```
 
 ---
 
@@ -236,63 +309,89 @@ Major venues where peer-reviewed research is published:
 ### The Funnel Approach
 
 ```
-        arXiv firehose (100+ papers/day)
-                  ↓
-        Newsletters filter (10-20/week)
-                  ↓
-        Your reading list (3-5/week)
-                  ↓
-        Deep reading (1-2/week)
-                  ↓
-        Notes/implementation (few/month)
+┌─────────────────────────────────────────────────────────────────────┐
+│                 The Information Funnel                              │
+│                                                                     │
+│                    ┌───────────────────┐                            │
+│                    │   arXiv firehose  │  100+ papers/day           │
+│                    │     (awareness)    │                            │
+│                    └─────────┬─────────┘                            │
+│                              │                                      │
+│                              ▼                                      │
+│                    ┌───────────────────┐                            │
+│                    │   Newsletters     │  10-20 papers/week         │
+│                    │    (filtered)     │                            │
+│                    └─────────┬─────────┘                            │
+│                              │                                      │
+│                              ▼                                      │
+│                    ┌───────────────────┐                            │
+│                    │  Your reading     │  3-5 papers/week           │
+│                    │      list         │                            │
+│                    └─────────┬─────────┘                            │
+│                              │                                      │
+│                              ▼                                      │
+│                    ┌───────────────────┐                            │
+│                    │   Deep reading    │  1-2 papers/week           │
+│                    │   (Pass 2+3)      │                            │
+│                    └─────────┬─────────┘                            │
+│                              │                                      │
+│                              ▼                                      │
+│                    ┌───────────────────┐                            │
+│                    │Notes/implement    │  Few per month             │
+│                    └───────────────────┘                            │
+│                                                                     │
+│   Each level filters for the next. Don't skip levels.              │
+└─────────────────────────────────────────────────────────────────────┘
 ```
 
-### Weekly Routine (Example)
+### Weekly Routine Example
 
-**Monday (30 min):**
-- Skim newsletter digests
-- Add interesting papers to reading list
+| Day | Activity | Time | Focus |
+|-----|----------|------|-------|
+| **Monday** | Skim newsletters | 30 min | What happened last week |
+| **Wednesday** | Deep read 1 paper | 1 hour | One paper, Pass 2 |
+| **Friday** | Check Papers With Code | 30 min | SOTA in your area |
+| **Ongoing** | Bookmark interesting things | 5 min | Build reading list |
 
-**Wednesday (1 hour):**
-- Pass 1-2 on 2-3 papers from your list
-- One Pass 3 on an important paper
-
-**Friday (30 min):**
-- Check Papers With Code for new SOTAs in your area
-- Browse Twitter for discussions
-
-**Ongoing:**
-- Bookmark interesting threads/posts
-- Note concepts to learn later
+**Total: ~2-3 hours/week** — sustainable and effective.
 
 ### Tools for Organization
 
-| Tool | Use |
-|------|-----|
-| Zotero | Paper library management |
-| Notion | Notes and summaries |
-| Readwise | Highlight management |
-| Pocket/Instapaper | Save articles for later |
-| Feedly | RSS feeds |
+| Tool | Use For | Free? |
+|------|---------|-------|
+| **Zotero** | Paper library, citations | Yes |
+| **Semantic Scholar** | Discovery, recommendations | Yes |
+| **Notion** | Notes, reading log | Yes (basic) |
+| **Readwise** | Highlight management | No |
+| **Pocket/Instapaper** | Save articles | Yes (basic) |
+| **Feedly** | RSS feeds | Yes (basic) |
 
-### What to Ignore
+### A Minimal System
 
-You don't need to track everything. Focus areas depend on your goals.
+```markdown
+## My Staying Current System
 
-**If you're learning foundations:**
-- Focus on established, cited papers
-- Ignore most arXiv papers
-- Prioritize courses and tutorials
+### Weekly inputs (2 sources max)
+1. The Batch newsletter
+2. Ahead of AI newsletter
 
-**If you're doing research:**
-- Track your specific area closely
-- Skim adjacent areas
-- Follow key researchers
+### Monthly check
+- Papers With Code: SOTA in my focus area
 
-**If you're building products:**
-- Focus on practical techniques
-- Prioritize implementations over theory
-- Watch for new libraries/tools
+### On-demand
+- Semantic Scholar: When I need to find papers
+- Connected Papers: When exploring a new area
+
+### Organization
+- Zotero: Paper library
+- Notion: Reading notes (using template from Module 5)
+
+### What I explicitly ignore
+- Daily arXiv browsing
+- Twitter drama
+- Every new model announcement
+- Areas outside my focus
+```
 
 ---
 
@@ -300,33 +399,56 @@ You don't need to track everything. Focus areas depend on your goals.
 
 ### Signs of Overload
 
-- Hundreds of unread tabs/bookmarks
-- FOMO about every new paper
-- Reading widely but not deeply
-- Knowing about techniques but not understanding them
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                 Warning Signs                                       │
+│                                                                     │
+│   ✗ Hundreds of unread tabs/bookmarks                               │
+│   ✗ FOMO about every new paper                                      │
+│   ✗ Reading widely but not deeply                                   │
+│   ✗ Knowing about techniques but not understanding them             │
+│   ✗ Spending more time reading about ML than doing ML               │
+│   ✗ Guilt about papers you "should" have read                       │
+│                                                                     │
+│   If these sound familiar, you're consuming too much.               │
+└─────────────────────────────────────────────────────────────────────┘
+```
 
-### Strategies
+### Strategies for Sanity
 
-**1. Set limits:**
+**1. Set Time Limits**
 - Max 30 min/day on "staying current"
-- Max 2-3 newsletters
-- Unsubscribe aggressively
+- Batch process (don't check continuously)
+- Schedule specific times
 
-**2. Batch processing:**
-- Designate specific times for paper reading
-- Don't context-switch throughout the day
-
-**3. Depth over breadth:**
+**2. Depth Over Breadth**
 - Better to deeply understand 5 papers than skim 50
 - Implementation teaches more than reading
+- One paper per week, fully understood, beats 10 skimmed
 
-**4. Just-in-time learning:**
+**3. Just-in-Time Learning**
 - Learn things when you need them
 - Not everything requires immediate attention
+- Trust that you can find information when needed
 
-**5. Accept missing things:**
+**4. Aggressive Filtering**
+- Unsubscribe from low-value sources
+- Mute topics/people that don't serve you
+- Delete bookmarks older than 1 month (if you haven't read it, you won't)
+
+**5. Accept Missing Things**
 - You WILL miss papers. That's okay.
 - Important ideas resurface
+- No one reads everything
+
+### What to Ignore by Stage
+
+| Your Stage | Focus On | Ignore |
+|------------|----------|--------|
+| **Learning foundations** | Courses, books, classic papers | arXiv, Twitter, latest models |
+| **Building projects** | Practical tutorials, documentation | Theoretical papers, benchmarks |
+| **Doing research** | Papers in your area, methods | Industry news, product launches |
+| **Industry work** | MLOps, production techniques | Pure research, academic metrics |
 
 ---
 
@@ -334,28 +456,41 @@ You don't need to track everything. Focus areas depend on your goals.
 
 ### LLMs and NLP
 
-- Papers: ACL, EMNLP, arXiv cs.CL
-- Blogs: Lil'Log, Jay Alammar
-- Code: Hugging Face Transformers
-- Discussions: r/LocalLLaMA
+| Resource Type | Recommendations |
+|---------------|-----------------|
+| Papers | ACL Anthology, EMNLP, arXiv cs.CL |
+| Blogs | Lil'Log, Jay Alammar, Sebastian Raschka |
+| Code | Hugging Face Transformers, LangChain |
+| Community | r/LocalLLaMA, Hugging Face Discord |
+| Newsletters | Ahead of AI, The Batch |
 
 ### Computer Vision
 
-- Papers: CVPR, ICCV, ECCV, arXiv cs.CV
-- Code: timm library, Hugging Face
-- Benchmarks: Papers With Code vision tasks
+| Resource Type | Recommendations |
+|---------------|-----------------|
+| Papers | CVPR, ICCV, ECCV, arXiv cs.CV |
+| Code | timm library, Hugging Face Vision |
+| Benchmarks | Papers With Code (vision tasks) |
+| Community | r/computervision |
 
 ### MLOps / Production ML
 
-- Blogs: Chip Huyen, Eugene Yan
-- Courses: MLOps Zoomcamp, Made With ML
-- Tools: MLflow, Weights & Biases, DVC
+| Resource Type | Recommendations |
+|---------------|-----------------|
+| Blogs | Chip Huyen, Eugene Yan |
+| Courses | MLOps Zoomcamp, Made With ML |
+| Tools | MLflow, Weights & Biases, DVC |
+| Books | "Designing ML Systems" by Chip Huyen |
+| Community | MLOps Community Slack |
 
-### Agents
+### Reinforcement Learning
 
-- Papers: arXiv, LangChain blog
-- Code: LangChain, LlamaIndex, AutoGen
-- Discussions: LangChain Discord
+| Resource Type | Recommendations |
+|---------------|-----------------|
+| Papers | NeurIPS, ICML (RL track) |
+| Courses | DeepMind x UCL lectures |
+| Code | Stable Baselines 3, CleanRL |
+| Books | Sutton & Barto (free online) |
 
 ---
 
@@ -391,82 +526,113 @@ Write down your personal "staying current" system:
 <details>
 <summary>Click to reveal solutions</summary>
 
-### Exercise 3: Find Current SOTA (answers will change over time)
+### Exercise 3: Find Current SOTA
 
-Check Papers With Code directly for current answers:
+Check Papers With Code directly for current answers (they change frequently):
 
 1. **ImageNet classification:**
    - Go to paperswithcode.com/sota/image-classification-on-imagenet
-   - As of late 2024: Models like CoCa, PaLI achieve ~91%+ top-1 accuracy
+   - As of 2024: Models achieving 90%+ top-1 accuracy
 
 2. **Machine translation (WMT):**
    - Go to paperswithcode.com/sota/machine-translation-on-wmt2014-english-german
-   - Recent models achieve 35+ BLEU
+   - Recent models achieve 30+ BLEU
 
 3. **Text summarization with code:**
    - Go to paperswithcode.com/task/text-summarization
-   - Look for papers with GitHub links (indicated by code icon)
-   - Examples: PEGASUS, BART, LED all have implementations
+   - Look for papers with GitHub links (code icon)
+   - Examples: PEGASUS, BART, LED
 
-### Exercise 4: Design Your System (example answer)
+### Exercise 4: Example System
 
 ```markdown
 ## My Staying Current System
 
 ### Sources (5 max)
 1. The Batch newsletter (weekly)
-2. Ahead of AI newsletter (weekly)
-3. Papers With Code (weekly check)
+2. Ahead of AI newsletter (weekly)  
+3. Papers With Code (weekly SOTA check)
 4. Yannic Kilcher YouTube (select videos)
 5. r/MachineLearning (occasional browse)
 
 ### Schedule
 - Monday 7-7:30 AM: Read newsletters
-- Wednesday lunch: One paper (Pass 1-2)
+- Wednesday lunch: One paper (Pass 2)
 - Saturday morning: Deep reading or implementation
 
 ### Organization
 - Zotero for paper library
 - Notion for reading notes
-- Template for each paper summary
+- Template from Module 5 for each paper
 
 ### Explicitly Ignoring
-- Daily arXiv firehose
-- Twitter drama
-- Every new model release announcement
-- Papers outside my focus area (vision, RL)
+- Daily arXiv browsing
+- Twitter ML drama
+- Every new model announcement
+- Papers outside my focus (RL, robotics)
+- Benchmarks I don't care about
 ```
 
 </details>
 
 ---
 
+## 🎯 Key Takeaways
+
+1. **You can't read everything.** Build a system that filters for you. Newsletters > raw arXiv browsing.
+
+2. **The funnel approach works.** Let curated sources filter the firehose → your reading list → deep reads → implementation.
+
+3. **Depth beats breadth.** One paper fully understood is worth more than 10 papers skimmed. Implement to truly learn.
+
+4. **Foundations have long half-lives.** Invest heavily in fundamentals (math, core algorithms). They remain relevant for years.
+
+5. **Just-in-time learning is valid.** You don't need to know everything now. Trust that you can find what you need when you need it.
+
+6. **Set explicit boundaries.** Decide what you'll ignore. Unsubscribe aggressively. Time-box your "staying current" activities.
+
+7. **Systems beat willpower.** A simple, consistent system (2 newsletters + weekly paper) beats sporadic intense reading.
+
+---
+
 ## 🔗 What's Next?
 
-You now have tools to keep learning after this course ends. Complete the **Self-Assessment** to verify you're ready for Course 01: ML Foundations.
+You now have tools to keep learning after this course ends. Complete the **Self-Assessment** in the `self_assessment/` folder to verify you're ready for Course 01: ML Foundations.
 
 ---
 
 ## 📖 Quick Reference: Key Resources
 
-### Must-Have Bookmarks
+### Bookmark These
+
 ```
-https://arxiv.org/list/cs.LG/recent
-https://www.semanticscholar.org/
-https://paperswithcode.com/
-https://www.connectedpapers.com/
+https://arxiv.org/list/cs.LG/recent     — Latest ML papers
+https://www.semanticscholar.org/        — Smart paper search
+https://paperswithcode.com/             — SOTA + code
+https://www.connectedpapers.com/        — Paper relationships
 ```
 
-### Newsletters to Consider
+### Subscribe to These (Pick 2)
+
 ```
-The Batch: deeplearning.ai/the-batch
-ImportAI: jack-clark.net
-Ahead of AI: magazine.sebastianraschka.com
+The Batch:    deeplearning.ai/the-batch
+Ahead of AI:  magazine.sebastianraschka.com
+TLDR AI:      tldr.tech/ai
+ImportAI:     jack-clark.net
 ```
 
-### Video Channels
+### Watch These
+
 ```
-Yannic Kilcher: youtube.com/@YannicKilcher
-Andrej Karpathy: youtube.com/@AndrejKarpathy
-3Blue1Brown: youtube.com/@3blue1brown
+Yannic Kilcher:   youtube.com/@YannicKilcher
+Andrej Karpathy:  youtube.com/@AndrejKarpathy
+3Blue1Brown:      youtube.com/@3blue1brown
+```
+
+### Follow These Blogs
+
+```
+Lil'Log:       lilianweng.github.io
+Jay Alammar:   jalammar.github.io
+colah's blog:  colah.github.io
 ```

@@ -4,18 +4,64 @@ Visualization is how you understand your data and debug your models. If you can'
 
 ---
 
-## 🎯 Learning Objectives
+## 🎯 Why This Matters
 
-By the end of this module, you will be able to:
-- Create line plots, scatter plots, and histograms
-- Build multi-panel figures with subplots
-- Customize plots (labels, legends, colors, styles)
-- Save publication-quality figures
-- Create quick diagnostic plots for debugging
+When your model isn't training correctly, you need to **see** what's happening:
+
+- Is the loss actually decreasing?
+- Are the predictions making sense?
+- Is the data distributed as expected?
+- Are there outliers causing problems?
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                 Visualization as Debugging                          │
+│                                                                     │
+│   Problem: "My model accuracy is stuck at 50%"                      │
+│                                                                     │
+│   Without visualization:                                            │
+│   → Guess: Maybe learning rate is wrong?                            │
+│   → Guess: Maybe data is bad?                                       │
+│   → Guess: Maybe model is too small?                                │
+│                                                                     │
+│   With visualization:                                               │
+│   → Plot loss: "Loss is flat — gradients might be zero"             │
+│   → Plot predictions: "All predictions are 0.5 — sigmoid saturation"│
+│   → Plot data: "Classes are perfectly balanced, data looks fine"    │
+│   → Diagnosis: Vanishing gradients, try different initialization    │
+│                                                                     │
+│   Visualization turns guessing into debugging.                      │
+└─────────────────────────────────────────────────────────────────────┘
+```
 
 ---
 
 ## 📚 Part 1: The Basics
+
+### Two Ways to Plot
+
+Matplotlib has two interfaces. Understanding the difference saves confusion:
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│              pyplot (simple) vs Object-Oriented (flexible)          │
+│                                                                     │
+│   pyplot style:                    OO style:                        │
+│   ─────────────                    ─────────                        │
+│   plt.plot(x, y)                   fig, ax = plt.subplots()         │
+│   plt.xlabel('x')                  ax.plot(x, y)                    │
+│   plt.title('Title')               ax.set_xlabel('x')               │
+│   plt.show()                       ax.set_title('Title')            │
+│                                    plt.show()                       │
+│                                                                     │
+│   Use pyplot for:                  Use OO for:                      │
+│   - Quick exploration              - Multiple subplots              │
+│   - Single plots                   - Complex figures                │
+│   - Interactive work               - Reproducible scripts           │
+│                                                                     │
+│   Recommendation: Learn OO style — it's what you'll see in ML code  │
+└─────────────────────────────────────────────────────────────────────┘
+```
 
 ### Your First Plot
 
@@ -50,17 +96,28 @@ ax.set_title('Sine Wave')
 plt.show()
 ```
 
-**Why this pattern?**
-- More explicit — you know exactly what you're modifying
-- Required for multiple subplots
-- Better for complex figures
-- Consistent with ML plotting code you'll read
+> **Why this pattern?** It's explicit — you know exactly what you're modifying. It's required for multiple subplots. And it's what you'll see in ML codebases everywhere.
 
 ---
 
 ## 📚 Part 2: Common Plot Types
 
+### When to Use Each Plot Type
+
+| Plot Type | Use When | ML Example |
+|-----------|----------|------------|
+| **Line plot** | Showing trends over time/steps | Loss curves, learning rate schedules |
+| **Scatter plot** | Showing relationships between variables | 2D embeddings, predictions vs actuals |
+| **Histogram** | Showing distributions | Weight distributions, prediction confidence |
+| **Bar chart** | Comparing categories | Model comparison, class frequencies |
+| **Heatmap** | Showing 2D patterns | Confusion matrices, attention weights |
+| **Box plot** | Comparing distributions across groups | Feature distributions by class |
+
+---
+
 ### Line Plots (Training Curves)
+
+The most common plot in ML — tracking loss and metrics over training.
 
 ```python
 # Simulated training history
@@ -82,7 +139,39 @@ ax.grid(True, alpha=0.3)
 plt.show()
 ```
 
+**Reading Training Curves — What to Look For:**
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                 Training Curve Diagnostics                          │
+│                                                                     │
+│   Healthy Training:           Overfitting:                          │
+│   Loss                        Loss                                  │
+│   │\                          │\                                    │
+│   │ \  train                  │ \  train                            │
+│   │  \_____                   │  \________                          │
+│   │   \____  val              │    val                              │
+│   │        ‾‾‾                │      /‾‾‾‾ (val goes UP)            │
+│   └─────────── Epoch          └─────────── Epoch                    │
+│   Both decrease together      Gap widens, val increases             │
+│                                                                     │
+│   Underfitting:               Unstable Training:                    │
+│   Loss                        Loss                                  │
+│   │                           │ /\/\/\                              │
+│   │ _______________           │/      \/\/\                         │
+│   │   (both flat)             │          \/\/                       │
+│   │                           │                                     │
+│   └─────────────── Epoch      └─────────────── Epoch                │
+│   Neither improving           Wild oscillations                     │
+│   → Need more capacity        → Learning rate too high              │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
 ### Scatter Plots (Data Visualization)
+
+Essential for understanding data structure and model predictions.
 
 ```python
 # 2D data with two classes
@@ -104,7 +193,49 @@ ax.axis('equal')  # Equal scaling
 plt.show()
 ```
 
+**Predictions vs Actuals Plot — The Regression Diagnostic:**
+
+```python
+def plot_predictions(y_true, y_pred, title='Predictions vs Actuals'):
+    """The most important plot for regression models."""
+    fig, ax = plt.subplots(figsize=(8, 8))
+    
+    ax.scatter(y_true, y_pred, alpha=0.5)
+    
+    # Perfect prediction line
+    lims = [min(y_true.min(), y_pred.min()), max(y_true.max(), y_pred.max())]
+    ax.plot(lims, lims, 'r--', label='Perfect')
+    
+    ax.set_xlabel('Actual')
+    ax.set_ylabel('Predicted')
+    ax.set_title(title)
+    ax.legend()
+    ax.axis('equal')
+    
+    plt.show()
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│              Reading Predictions vs Actuals                         │
+│                                                                     │
+│   Good model:              Systematic bias:       High variance:    │
+│   Pred                     Pred                   Pred              │
+│   │      /                 │      /               │    · ·  /       │
+│   │    ·/·                 │  ···/                │  ·   · /        │
+│   │  ·/·                   │ ·· /                 │ ·  ·  /  ·      │
+│   │ /···                   │·  /                  │/·    ·   ·      │
+│   │/                       │  /  (below line)     │  ·  ·           │
+│   └────── Actual           └────── Actual         └────── Actual    │
+│   Points on line           Under-predicting       Wide scatter      │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
 ### Histograms (Distributions)
+
+Critical for understanding what your data and model outputs look like.
 
 ```python
 # Model predictions vs actual
@@ -123,6 +254,40 @@ ax.legend()
 
 plt.show()
 ```
+
+**Weight Distribution — Debugging Neural Networks:**
+
+```python
+def plot_weight_distributions(model):
+    """Check for vanishing/exploding gradients by looking at weights."""
+    fig, axes = plt.subplots(1, len(list(model.parameters())), figsize=(15, 4))
+    
+    for ax, (name, param) in zip(axes, model.named_parameters()):
+        weights = param.data.cpu().numpy().flatten()
+        ax.hist(weights, bins=50)
+        ax.set_title(f'{name}\nmean={weights.mean():.3f}, std={weights.std():.3f}')
+    
+    plt.tight_layout()
+    plt.show()
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│              Weight Distribution Diagnostics                        │
+│                                                                     │
+│   Healthy:                 Too small (vanishing):  Too large:       │
+│   Count                    Count                   Count            │
+│   │    ┌──┐                │   ┌┐                  │               │
+│   │   ┌┘  └┐               │   ││                  │┌┐          ┌┐│ │
+│   │  ┌┘    └┐              │  ┌┘└┐                 ││└┐        ┌┘││ │
+│   │ ┌┘      └┐             │ ┌┘  └┐                ││ └┐      ┌┘ ││ │
+│   └─┴────────┴─ 0          └─┴────┴─ 0             └┴──┴──────┴──┴┘ │
+│   Spread around 0          All near 0              Bimodal/extreme  │
+│   → Good initialization    → Gradients vanishing   → Exploding      │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+---
 
 ### Bar Charts (Comparisons)
 
@@ -145,6 +310,8 @@ ax.set_ylim(0, 1.0)
 
 plt.show()
 ```
+
+---
 
 ### Heatmaps (Confusion Matrices, Attention)
 
@@ -173,10 +340,30 @@ ax.set_title('Confusion Matrix')
 # Add numbers in cells
 for i in range(len(classes)):
     for j in range(len(classes)):
-        text = ax.text(j, i, confusion[i, j], ha='center', va='center')
+        color = 'white' if confusion[i, j] > confusion.max() / 2 else 'black'
+        ax.text(j, i, confusion[i, j], ha='center', va='center', color=color)
 
 fig.colorbar(im)
 plt.show()
+```
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│              Reading Confusion Matrices                             │
+│                                                                     │
+│   Good classifier:                Poor classifier:                  │
+│              Predicted                      Predicted               │
+│            Cat Dog Bird                   Cat Dog Bird              │
+│   Actual  ┌───┬───┬───┐         Actual   ┌───┬───┬───┐             │
+│   Cat     │ 45│  3│  2│         Cat      │ 25│ 15│ 10│             │
+│   Dog     │  5│ 42│  3│         Dog      │ 12│ 20│ 18│             │
+│   Bird    │  2│  4│ 44│         Bird     │  8│ 17│ 25│             │
+│           └───┴───┴───┘                  └───┴───┴───┘             │
+│   Strong diagonal                Many off-diagonal errors           │
+│   → Classes well-separated       → Classes confused                 │
+│                                                                     │
+│   Look for patterns: Which classes get confused with each other?    │
+└─────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -230,34 +417,32 @@ plt.show()
 ### Common ML Pattern: Train/Val Curves Side by Side
 
 ```python
-epochs = np.arange(1, 101)
-train_loss = 2.0 * np.exp(-0.05 * epochs) + np.random.randn(100) * 0.03
-val_loss = 2.2 * np.exp(-0.04 * epochs) + np.random.randn(100) * 0.05
-train_acc = 1 - train_loss / 3
-val_acc = 1 - val_loss / 3
+def plot_training_history(train_loss, val_loss, train_acc, val_acc):
+    """Standard training history visualization."""
+    epochs = np.arange(1, len(train_loss) + 1)
+    
+    fig, axes = plt.subplots(1, 2, figsize=(14, 5))
 
-fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+    # Loss
+    axes[0].plot(epochs, train_loss, label='Train')
+    axes[0].plot(epochs, val_loss, label='Validation')
+    axes[0].set_xlabel('Epoch')
+    axes[0].set_ylabel('Loss')
+    axes[0].set_title('Loss Curves')
+    axes[0].legend()
+    axes[0].grid(True, alpha=0.3)
 
-# Loss
-axes[0].plot(epochs, train_loss, label='Train')
-axes[0].plot(epochs, val_loss, label='Validation')
-axes[0].set_xlabel('Epoch')
-axes[0].set_ylabel('Loss')
-axes[0].set_title('Loss Curves')
-axes[0].legend()
-axes[0].grid(True, alpha=0.3)
+    # Accuracy
+    axes[1].plot(epochs, train_acc, label='Train')
+    axes[1].plot(epochs, val_acc, label='Validation')
+    axes[1].set_xlabel('Epoch')
+    axes[1].set_ylabel('Accuracy')
+    axes[1].set_title('Accuracy Curves')
+    axes[1].legend()
+    axes[1].grid(True, alpha=0.3)
 
-# Accuracy
-axes[1].plot(epochs, train_acc, label='Train')
-axes[1].plot(epochs, val_acc, label='Validation')
-axes[1].set_xlabel('Epoch')
-axes[1].set_ylabel('Accuracy')
-axes[1].set_title('Accuracy Curves')
-axes[1].legend()
-axes[1].grid(True, alpha=0.3)
-
-plt.tight_layout()
-plt.show()
+    plt.tight_layout()
+    plt.show()
 ```
 
 ---
@@ -294,6 +479,16 @@ ax.plot(x, y, 'r--o')  # Red, dashed, circle markers
 # Line width and marker size
 ax.plot(x, y, linewidth=2, markersize=8)
 ```
+
+### Common Style Combinations
+
+| Purpose | Style | Code |
+|---------|-------|------|
+| Training curve | Solid line | `ax.plot(x, y, '-')` |
+| Validation curve | Dashed line | `ax.plot(x, y, '--')` |
+| Data points | Markers only | `ax.scatter(x, y)` |
+| Threshold/reference | Thin dashed gray | `ax.axhline(y, color='gray', linestyle='--', alpha=0.5)` |
+| Best result | Highlighted marker | `ax.scatter([x_best], [y_best], s=100, color='red', zorder=5)` |
 
 ### Legends
 
@@ -379,10 +574,14 @@ fig.savefig('figure.svg', bbox_inches='tight')
 fig.savefig('figure.png', transparent=True, dpi=150, bbox_inches='tight')
 ```
 
-**Key parameters:**
-- `dpi`: Resolution (150-300 for print)
-- `bbox_inches='tight'`: Crop whitespace
-- `transparent=True`: Transparent background
+| Format | Type | Best For | Typical DPI |
+|--------|------|----------|-------------|
+| PNG | Raster | Screenshots, web | 150-300 |
+| PDF | Vector | Papers, presentations | N/A |
+| SVG | Vector | Web, editing | N/A |
+| JPEG | Raster | Photos (not plots!) | 150-300 |
+
+> **Tip:** Always use `bbox_inches='tight'` to crop whitespace. Use `dpi=300` for print-quality figures.
 
 ---
 
@@ -457,31 +656,44 @@ images = [np.random.rand(28, 28) for _ in range(8)]
 show_images(images)
 ```
 
-### Prediction vs Actual
+### The Four-Panel Debug Dashboard
 
 ```python
-def plot_predictions(y_true, y_pred, title='Predictions'):
-    """Scatter plot of predictions vs actuals."""
-    fig, ax = plt.subplots(figsize=(8, 8))
+def plot_training_debug(losses, accuracies, predictions, targets):
+    """Complete training step debug visualization."""
+    fig, axes = plt.subplots(2, 2, figsize=(12, 10))
     
-    ax.scatter(y_true, y_pred, alpha=0.5)
+    # Loss curve
+    axes[0, 0].plot(losses)
+    axes[0, 0].set_title(f'Loss (current: {losses[-1]:.4f})')
+    axes[0, 0].set_xlabel('Step')
+    axes[0, 0].set_ylabel('Loss')
+    axes[0, 0].grid(True, alpha=0.3)
     
-    # Perfect prediction line
-    lims = [min(y_true.min(), y_pred.min()), max(y_true.max(), y_pred.max())]
-    ax.plot(lims, lims, 'r--', label='Perfect')
+    # Accuracy curve
+    axes[0, 1].plot(accuracies)
+    axes[0, 1].set_title(f'Accuracy (current: {accuracies[-1]:.4f})')
+    axes[0, 1].set_xlabel('Step')
+    axes[0, 1].set_ylabel('Accuracy')
+    axes[0, 1].grid(True, alpha=0.3)
     
-    ax.set_xlabel('Actual')
-    ax.set_ylabel('Predicted')
-    ax.set_title(title)
-    ax.legend()
-    ax.axis('equal')
+    # Prediction histogram
+    axes[1, 0].hist(predictions.flatten(), bins=30, alpha=0.7)
+    axes[1, 0].set_title(f'Predictions (mean: {predictions.mean():.3f})')
+    axes[1, 0].set_xlabel('Prediction')
+    axes[1, 0].set_ylabel('Count')
     
+    # Predictions vs targets
+    axes[1, 1].scatter(targets.flatten(), predictions.flatten(), alpha=0.5)
+    lims = [min(targets.min(), predictions.min()), 
+            max(targets.max(), predictions.max())]
+    axes[1, 1].plot(lims, lims, 'r--')
+    axes[1, 1].set_title('Predictions vs Targets')
+    axes[1, 1].set_xlabel('Target')
+    axes[1, 1].set_ylabel('Prediction')
+    
+    plt.tight_layout()
     plt.show()
-
-# Usage
-y_true = np.random.randn(100)
-y_pred = y_true + np.random.randn(100) * 0.2
-plot_predictions(y_true, y_pred)
 ```
 
 ---
@@ -509,7 +721,82 @@ sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm')
 sns.pairplot(df, hue='class')
 ```
 
-Seaborn is great for exploration, but Matplotlib gives you more control for publication figures.
+### When to Use Seaborn vs Matplotlib
+
+| Task | Seaborn | Matplotlib |
+|------|---------|------------|
+| Quick EDA | ✓ | |
+| Statistical plots | ✓ | |
+| Pair plots | ✓ | |
+| Full control | | ✓ |
+| Custom layouts | | ✓ |
+| Publication figures | | ✓ |
+| Subplots | | ✓ |
+
+> **Tip:** Seaborn is great for exploration, but Matplotlib gives you more control for publication figures.
+
+---
+
+## 📚 Part 8: Common Pitfalls and Fixes
+
+### Pitfall 1: Overlapping Labels
+
+```python
+# Problem
+fig, ax = plt.subplots()
+ax.bar(range(10), range(10))
+ax.set_xticklabels(['Very Long Label ' + str(i) for i in range(10)])
+# Labels overlap!
+
+# Fix: Rotate labels
+ax.set_xticklabels(['Very Long Label ' + str(i) for i in range(10)], 
+                   rotation=45, ha='right')
+plt.tight_layout()
+```
+
+### Pitfall 2: Color Scale Issues
+
+```python
+# Problem: Linear scale hides patterns in skewed data
+ax.imshow(data_with_outliers)  # Outliers dominate color scale
+
+# Fix 1: Log scale
+ax.imshow(np.log1p(data_with_outliers))
+
+# Fix 2: Clip outliers
+vmin, vmax = np.percentile(data_with_outliers, [5, 95])
+ax.imshow(data_with_outliers, vmin=vmin, vmax=vmax)
+```
+
+### Pitfall 3: Misleading Axis
+
+```python
+# Problem: Y-axis doesn't start at 0 (exaggerates differences)
+values = [98, 99, 100, 101, 102]
+ax.plot(values)  # Looks like huge variation!
+
+# Fix: Either start at 0 or be explicit
+ax.set_ylim(0, 110)  # Start at 0
+# Or add a break indicator and note in caption
+```
+
+### Pitfall 4: Too Many Colors
+
+```python
+# Problem: 10 lines with default colors — hard to distinguish
+for i in range(10):
+    ax.plot(data[i])
+
+# Fix 1: Use line styles
+styles = ['-', '--', ':', '-.']
+for i in range(10):
+    ax.plot(data[i], linestyle=styles[i % 4])
+
+# Fix 2: Use a colormap
+colors = plt.cm.viridis(np.linspace(0, 1, 10))
+for i, c in enumerate(colors):
+    ax.plot(data[i], color=c)
+```
 
 ---
 
@@ -714,6 +1001,24 @@ def plot_training_step(losses, accuracies, predictions, targets):
 ```
 
 </details>
+
+---
+
+## 🎯 Key Takeaways
+
+1. **Visualization is debugging.** When training goes wrong, the first step is always "plot it" — loss curves, predictions, weight distributions.
+
+2. **Use the OO interface** (`fig, ax = plt.subplots()`) — it's more explicit, works for complex figures, and matches what you'll see in ML codebases.
+
+3. **Training curves tell a story.** Learn to read overfitting (val loss going up), underfitting (both flat), and instability (oscillations).
+
+4. **Predictions vs actuals** is the most important regression diagnostic. Points should cluster around the y=x line.
+
+5. **Confusion matrices** reveal which classes are confused. Look at off-diagonal patterns.
+
+6. **Build a library of quick-debug functions** — `quick_hist()`, `plot_loss()`, `show_images()`. You'll use them constantly.
+
+7. **Save figures with `bbox_inches='tight'`** and appropriate DPI. Use PDF for papers, PNG for sharing.
 
 ---
 
