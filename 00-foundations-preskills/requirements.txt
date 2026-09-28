@@ -1,37 +1,57 @@
 # Foundations & Pre-Skills - Course 00
-# Core dependencies for Python, NumPy, and visualization modules
+# =====================================
+# Dependencies for Python, NumPy, visualization, and ML foundations
 
-# NumPy for numerical computing
+# Core Dependencies (Required)
+# ----------------------------
+
+# NumPy for numerical computing - THE foundation of all ML
 numpy>=1.24.0
 
-# Matplotlib for visualization
+# Matplotlib for visualization - see your data and training progress
 matplotlib>=3.7.0
 
-# Jupyter for notebook workflow
-jupyter>=1.0.0
+# Jupyter for notebook workflow - standard ML experimentation environment
 jupyterlab>=4.0.0
 notebook>=7.0.0
 
 # IPython for enhanced interactive Python
 ipython>=8.0.0
 
-# Optional but recommended
-# ----------------------------
+# Recommended Dependencies
+# ------------------------
 
-# Pandas for data manipulation (used in some examples)
+# Pandas for data manipulation (used in examples and real projects)
 pandas>=2.0.0
 
 # Seaborn for statistical visualization (built on matplotlib)
 seaborn>=0.12.0
 
+# Scikit-learn for ML utilities (train_test_split, metrics, etc.)
+scikit-learn>=1.3.0
+
+# Optional Dependencies
+# ---------------------
+
 # For paper reading module - PDF handling
 # pypdf>=3.0.0  # Uncomment if you want to work with PDF papers locally
 
-# Development tools
-# ----------------------------
+# Development Tools
+# -----------------
 
-# Code formatting
-black>=23.0.0
+# Code formatting (optional but recommended)
+# black>=23.0.0
 
 # Type checking (mentioned in Python essentials)
-mypy>=1.0.0
+# mypy>=1.0.0
+
+# Installation Instructions
+# -------------------------
+# Install all required + recommended:
+#   pip install -r requirements.txt
+#
+# Install minimal (required only):
+#   pip install numpy matplotlib jupyterlab ipython
+#
+# Verify installation:
+#   python verify_setup.py
